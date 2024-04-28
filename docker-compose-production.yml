@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    volumes:
+      - ./app/note-app:/app/note-app
+    working_dir: /app/note-app
+    ports:
+      - 3000:3000
+    command: >
+      /bin/sh -c '
+      yarn build &&
+      yarn start
+      '
+    tty: true
+    stdin_open: true
